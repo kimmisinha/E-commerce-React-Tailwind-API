@@ -3,7 +3,7 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import Logo from "../img/logo.svg";
-import { BsBag } from "react-icons/bs";
+import { BsBag, BsSearch } from "react-icons/bs";
 
 const Header = () => {
   // header state
@@ -21,24 +21,29 @@ const Header = () => {
   return (
     <header
       className={`${
-        isActive ? "bg-white py-4 shadow-md" : "bg-none py-6"
-      } fixed w-full z-10 lg:px-8 transition-all`}
+        isActive ? "bg-white py-4 shadow-lg" : "bg-transparent py-6"
+      } fixed w-full z-10 lg:px-8 transition-all duration-300`}
     >
       <div className="container mx-auto flex items-center justify-between h-full">
         <Link to={"/"}>
-          <div className="w-[40px]">
-            <img src={Logo} alt="" />
+          <div className="w-[40px] lg:w-[50px]">
+            <img src={Logo} alt="Logo" />
           </div>
         </Link>
 
-        {/* cart */}
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="cursor-pointer flex relative"
-        >
-          <BsBag className="text-2xl" />
-          <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
-            {itemAmount}
+        {/* search and cart */}
+        <div className="flex items-center space-x-4">
+          <div className="cursor-pointer">
+            <BsSearch className="text-2xl lg:text-3xl" />
+          </div>
+          <div
+            onClick={() => setIsOpen(!isOpen)}
+            className="cursor-pointer flex relative"
+          >
+            <BsBag className="text-2xl lg:text-3xl" />
+            <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] lg:w-[20px] lg:h-[20px] text-white rounded-full flex justify-center items-center">
+              {itemAmount}
+            </div>
           </div>
         </div>
       </div>

@@ -6,34 +6,34 @@ const Footer = () => {
     <footer className="bg-primary py-12">
       <div className="container mx-auto text-center">
         <div className="mb-6">
-          <h3 className="text-2xl text-white font-semibold mb-2">Follow Us</h3>
-          <div className="flex justify-center space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-              <FaFacebook size={24} />
+          <h3 className="text-3xl text-white font-bold mb-4">Follow Us</h3>
+          <div className="flex justify-center space-x-6">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition duration-300">
+              <FaFacebook size={28} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-              <FaTwitter size={24} />
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition duration-300">
+              <FaTwitter size={28} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-              <FaInstagram size={24} />
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition duration-300">
+              <FaInstagram size={28} />
             </a>
           </div>
         </div>
-        <p className="text-white text-center mb-4">
+        <p className="text-white text-lg mb-6">
           Subscribe to our newsletter for the latest updates.
         </p>
         <form className="flex justify-center mb-6">
           <input
             type="email"
             placeholder="Enter your email"
-            className="px-4 py-2 rounded-l-full focus:outline-none"
+            className="px-4 py-3 rounded-l-full focus:outline-none text-gray-700"
           />
-          <button className="bg-secondary text-white px-4 py-2 rounded-r-full hover:bg-secondary-dark">
+          <button className="bg-secondary text-white px-6 py-3 rounded-r-full hover:bg-secondary-dark transition duration-300">
             Subscribe
           </button>
         </form>
-        <p className="text-white text-center">
-          Copyright &copy; kimmi kumari sinha 🤍 2022. All rights reserved.
+        <p className="text-white text-sm">
+          &copy; 2024 Kimmi Kumari Sinha. All rights reserved.
         </p>
       </div>
     </footer>

@@ -34,7 +34,8 @@ const Header = () => {
         {/* search and cart */}
         <div className="flex items-center space-x-4">
           <div className="cursor-pointer">
-            <BsSearch className="text-2xl lg:text-3xl" />
+            {/* //serach */}
+            {/* <BsSearch className="text-2xl lg:text-3xl" /> */}
           </div>
           <div
             onClick={() => setIsOpen(!isOpen)}

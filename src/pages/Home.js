@@ -5,7 +5,7 @@ import { BsSearch } from "react-icons/bs";
 
 const Home = () => {
   // get products from product context
-  const { products, loading, error } = useContext(ProductContext);
+  const { products, } = useContext(ProductContext);
   // console.log(products)
   const [search, setSearch] = useState("");
 

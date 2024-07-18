@@ -18,15 +18,12 @@ function Login() {
     e.preventDefault();
     const loginuser = JSON.parse(localStorage.getItem("user"));
     let userToken=(generateToken(60))
-
-
     localStorage.setItem("token", JSON.stringify({ userToken }));
     if (
       credentials[1] === loginuser.email &&
       credentials[0] === loginuser.password
     ) 
-    
-      navigate("/");
+    navigate("/");
   
     if (credentials[0]!== loginuser.email) {
       alert("you enter wrong email");
@@ -94,14 +91,6 @@ function Login() {
             Login
           </button>
         </form>
-        <div className="footer">
-          <p>
-            Don't have an account?
-            <span className="signup-link" onClick={() => navigate("/signup")}>
-              Sign up here
-            </span>
-          </p>
-        </div>
       </div>
     </div>
   );

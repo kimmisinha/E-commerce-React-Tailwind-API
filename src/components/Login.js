@@ -3,7 +3,7 @@ import "../components/Login.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import generateToken from './Token'
+import generateToken from "./Token";
 function Login() {
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,30 +14,33 @@ function Login() {
   const [emailError, setEmailError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState(["", ""]);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const loginuser = JSON.parse(localStorage.getItem("user"));
-    let userToken=(generateToken(60))
-    localStorage.setItem("token", JSON.stringify({ userToken }));
-    if (
-      credentials[1] === loginuser.email &&
-      credentials[0] === loginuser.password
-    ) 
-    navigate("/");
-  
-    if (credentials[0]!== loginuser.email) {
-      alert("you enter wrong email");
+
+    if (!loginuser) {
+      alert("Please register before logging in.");
     }
+
+    if (credentials[0] !== loginuser.email) {
+      alert("You entered the wrong email.");
+    }
+
     if (credentials[1] !== loginuser.password) {
-      alert("you enter wrong password");
+      alert("You entered the wrong password.");
     }
+
     if (!validateEmail(credentials[0])) {
       setEmailError("Please enter a valid email address.");
-    } else {
-      setEmailError("");
-    //   console.log("Email1:", credentials[0]);
-    //   console.log("Password1:", credentials[1]);
     }
+
+    const userToken = await generateToken(60);
+    console.log("userToken", userToken);
+    localStorage.setItem("loginIn", true);
+
+    localStorage.setItem("Token", JSON.stringify({ userToken }));
+
+    navigate("/");
   };
 
   const toggleShowPassword = () => {

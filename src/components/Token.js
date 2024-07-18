@@ -2,7 +2,7 @@ let token = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let numbers = "1234567890";
 let specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
-function generateToken(length) {
+async function generateToken(length) {
   let result = "";
   const allCharacters = token + numbers + specialChars;
   console.log(allCharacters.length)

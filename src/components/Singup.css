@@ -1,101 +1,119 @@
 body {
-    background-color: #f2f2f2;
-  }
-  
-  .main-container {
-    width: 300px;
-    margin: auto;
-    text-align: center;
-    border: 1px solid white;
-    background-color: #ffffff;
-  
-    height: 600px;
-    margin-top: 90px;
-    border-radius: 10px;
-    margin-bottom: 90px;
-  }
-  
-  .Welcome {
-    margin-top: 40px;
-    color: #333;
-    font: 500;
-    font-size: 30px;
-    line-height: 1.2;
-    text-align: center;
-    padding-bottom: 6px;
-    box-sizing: border-box;
-    display: block;
-  }
-  
-  .subtitle {
-    font-size: 40px;
-    margin: auto;
-  
-    color: white;
-    background-color: black;
-    box-sizing: inherit;
-    margin-top: 0%;
-    height: 50px;
-    width: 50px;
-    border-radius: 4px;
-  }
-  
-  .colorful-line {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      red,
-      orange,
-      yellow,
-      green,
-      blue,
-      indigo,
-      violet
-    );
-    margin: 20px 0;
-  }
-  
-  .gradient-button {
-    background: linear-gradient(90deg, purple, blue, green);
-    border: none;
-    border-radius: 25px;
-    width: 190px;
-    height: 30px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background-position 0.5s, color 0.5s;
-    background-size: 200% 200%;
+  background-color: #f2f2f2;
+}
+
+.main-container {
+  width: 350px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid white;
+  background-color: #ffffff;
+
+  height: 600px;
+  margin-top: 90px;
+  border-radius: 10px;
+  margin-bottom: 90px;
+}
+
+.Welcome {
+  margin-top: 6px;
+  color: #333;
+  font: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 6px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.subtitle {
+  font-size: 40px;
+  margin: auto;
+
+  color: white;
+  background-color: black;
+  box-sizing: inherit;
+  margin-top: 0%;
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+}
+
+.colorful-line {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  margin: 20px 0;
+}
+
+.gradient-button {
+  background: linear-gradient(90deg, purple, blue, green);
+  border: none;
+  border-radius: 25px;
+  width: 190px;
+  height: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-position 0.5s, color 0.5s;
+  background-size: 200% 200%;
+  margin-top: 10px;
+}
+
+.gradient-button:hover {
+  background-position: 100% 100%;
+}
+
+.footer {
+  margin-top: auto;
+  line-height: 1.5;
+  font-size: 13px;
+  color: #666;
+  margin-top: 90px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container .eye-icon {
+  position: absolute;
+  right: -10px;
+  top: 20%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.input-group {
+  margin-top: 5px;
+}
+.login-text {
     margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
   }
   
-  .gradient-button:hover {
-    background-position: 100% 100%;
-  }
-  
-  .footer {
-    margin-top: auto;
-    line-height: 1.5;
-    font-size: 13px;
-    color: #666;
-    margin-top: 90px;
-  }
-  
-  .password-container {
-    position: relative;
-  }
-  
-  .password-container .eye-icon {
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
+  .login-link {
+    color: #007bff;
     cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
   }
   
-  .input-group {
-    margin-top: 30px;
+  .login-link:hover {
+    color: #0056b3;
   }
+  

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../components/Login.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
+import {useNavigate} from "react-router-dom"
 
 function Login() {
   const validateEmail = (email) => {
@@ -10,13 +11,15 @@ function Login() {
   };
 
   // const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
   const [emailError, setEmailError] = useState("");
   // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState(["", ""]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.getItem()
     if (!validateEmail(credentials[0])) {
       setEmailError("Please enter a valid email address.");
     } else {
@@ -80,8 +83,12 @@ function Login() {
           </button>
         </form>
         <div className="footer">
-          <p>
-            Don't have an account? <a href="#">Sign up</a>
+        <p>
+            Don't have an account?
+        
+            <span className="signup-link" onClick={() => navigate("/signup")}>
+              Sign up here
+            </span>
           </p>
         </div>
       </div>

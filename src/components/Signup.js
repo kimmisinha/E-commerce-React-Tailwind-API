@@ -1,10 +1,11 @@
-
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../components/Singup.css";
 
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
 function SignUp() {
+  const navgiate = useNavigate();
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
@@ -19,12 +20,17 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ username, email, confirmPassword, password })
+    );
+    navgiate("/Login");
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
-    } else if(password!==confirmPassword){
+    } else if (password !== confirmPassword) {
       alert("Passwords do not match!");
-    }
-    else {
+      navgiate("/Signup");
+    } else {
       setEmailError("error in email");
       console.log("Username:", username);
       console.log("Email:", email);
@@ -85,7 +91,7 @@ function SignUp() {
                 required
               />
               <span className="eye-icon" onClick={toggleShowPassword}>
-              {showPassword ? <FaRegEye /> : <FaEyeLowVision />}
+                {showPassword ? <FaRegEye /> : <FaEyeLowVision />}
               </span>
             </div>
           </div>
@@ -106,12 +112,13 @@ function SignUp() {
           <button type="submit" className="gradient-button">
             Sign up
           </button>
-        </form>
-        <div className="footer">
-          <p>
-            Already have an account? <a href="#">Login here</a>
+          <p className="login-text">
+            Already have an account?
+            <span className="login-link" onClick={() => navgiate("/Login")}>
+              Login here
+            </span>
           </p>
-        </div>
+        </form>
       </div>
     </div>
   );

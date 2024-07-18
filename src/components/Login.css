@@ -134,3 +134,15 @@ body {
     font-size: 14px;
     margin-top: -10px;
   }
+
+
+  .signup-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .signup-link:hover {
+    color: #0056b3; 
+  }
+  

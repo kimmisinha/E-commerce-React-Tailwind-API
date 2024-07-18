@@ -3,10 +3,12 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import Logo from "../img/logo.svg";
-import { BsBag, BsSearch } from "react-icons/bs";
+import { BsBag } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   // header state
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
@@ -17,8 +19,10 @@ const Header = () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
     });
   });
-
+  let token=JSON.parse(localStorage.getItem("token"));
+  localStorage.removeItem('token');
   return (
+
     <header
       className={`${
         isActive ? "bg-white py-4 shadow-lg" : "bg-transparent py-6"
@@ -46,7 +50,11 @@ const Header = () => {
               {itemAmount}
             </div>
           </div>
+          <div>
+            <button onClick={() => navigate("/Signup")}>Logout</button>
+          </div>
         </div>
+        
       </div>
     </header>
   );

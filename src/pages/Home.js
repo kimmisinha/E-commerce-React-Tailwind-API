@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import Product from "../components/Product";
 import { useDebounce } from "use-debounce";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 const Home = () => {
   const { products } = useContext(ProductContext);
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,6 +41,7 @@ const Home = () => {
 
   return (
     <div>
+      <Header />
       <section className="py-20">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold mb-10 text-center">
@@ -88,6 +91,7 @@ const Home = () => {
           Next
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

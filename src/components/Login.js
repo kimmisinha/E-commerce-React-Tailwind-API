@@ -2,30 +2,44 @@ import React, { useState } from "react";
 import "../components/Login.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
-import {useNavigate} from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
+import generateToken from './Token'
 function Login() {
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   };
 
-  // const [email, setEmail] = useState("");
   const navigate = useNavigate();
-
   const [emailError, setEmailError] = useState("");
-  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState(["", ""]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.getItem()
+    const loginuser = JSON.parse(localStorage.getItem("user"));
+    let userToken=(generateToken(60))
+
+
+    localStorage.setItem("token", JSON.stringify({ userToken }));
+    if (
+      credentials[1] === loginuser.email &&
+      credentials[0] === loginuser.password
+    ) 
+    
+      navigate("/");
+  
+    if (credentials[0]!== loginuser.email) {
+      alert("you enter wrong email");
+    }
+    if (credentials[1] !== loginuser.password) {
+      alert("you enter wrong password");
+    }
     if (!validateEmail(credentials[0])) {
       setEmailError("Please enter a valid email address.");
     } else {
       setEmailError("");
-      console.log("Email:", credentials[0]);
-      console.log("Password:", credentials[1]);
+    //   console.log("Email1:", credentials[0]);
+    //   console.log("Password1:", credentials[1]);
     }
   };
 
@@ -50,9 +64,7 @@ function Login() {
               name="email"
               placeholder="Enter your email"
               value={credentials[0]}
-              onChange={(e) =>
-                setCredentials([e.target.value, credentials[1]])
-              }
+              onChange={(e) => setCredentials([e.target.value, credentials[1]])}
               required
             />
             {emailError && <p className="error">{emailError}</p>}
@@ -83,9 +95,8 @@ function Login() {
           </button>
         </form>
         <div className="footer">
-        <p>
+          <p>
             Don't have an account?
-        
             <span className="signup-link" onClick={() => navigate("/signup")}>
               Sign up here
             </span>

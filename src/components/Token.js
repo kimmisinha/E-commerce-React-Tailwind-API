@@ -1,10 +1,10 @@
 let token = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let numbers = "1234567890";
-let specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+// let specialChars = "!@$%^&*()_+-=[]{}|;:,.<>?";
 
 async function generateToken(length) {
   let result = "";
-  const allCharacters = token + numbers + specialChars;
+  const allCharacters = token + numbers;
   console.log(allCharacters.length)
   const charactersLength = allCharacters.length;
   for (let i = 0; i < length; i++) {

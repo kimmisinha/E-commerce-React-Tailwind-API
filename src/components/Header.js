@@ -19,8 +19,14 @@ const Header = () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
     });
   });
-  let token=JSON.parse(localStorage.getItem("token"));
-  localStorage.removeItem('token');
+ 
+
+  function handleSubmit(){
+    let token=JSON.parse(localStorage.getItem("Token"));
+    localStorage.removeItem('Token');
+    localStorage.setItem("loginIn", false);
+    navigate("/Signup")
+  }
   return (
 
     <header
@@ -47,11 +53,12 @@ const Header = () => {
           >
             <BsBag className="text-2xl lg:text-3xl" />
             <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] lg:w-[20px] lg:h-[20px] text-white rounded-full flex justify-center items-center">
-              {itemAmount}
+              {/* {itemAmount} */}
+              {JSON.parse(sessionStorage.getItem("item"))}
             </div>
           </div>
           <div>
-            <button onClick={() => navigate("/Signup")}>Logout</button>
+            <button onClick={handleSubmit}>Logout</button>
           </div>
         </div>
         

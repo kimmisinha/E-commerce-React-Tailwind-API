@@ -5,6 +5,8 @@ import { FaEyeLowVision } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import generateToken from "./Token";
 function Login() {
+  const navgiate = useNavigate();
+
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
@@ -36,11 +38,11 @@ function Login() {
 
     const userToken = await generateToken(60);
     console.log("userToken", userToken);
-    localStorage.setItem("loginIn", true);
+    // localStorage.setItem("loginIn", true);
 
-    localStorage.setItem("Token", JSON.stringify({ userToken }));
+    localStorage.setItem("token",JSON.stringify(userToken));
 
-    navigate("/");
+    navigate("/Home");
   };
 
   const toggleShowPassword = () => {
@@ -90,9 +92,15 @@ function Login() {
             </div>
             <hr className="colorful-line" />
           </div>
-          <button type="submit" className="gradient-button">
+           <button type="submit" className="gradient-button">
             Login
-          </button>
+          </button> 
+            {<p className="login-text">
+            Already have an account?
+            <span className="login-link" onClick={() => navgiate("/Signup")}>
+              Login here
+            </span>
+          </p> }
         </form>
       </div>
     </div>

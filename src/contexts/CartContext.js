@@ -7,6 +7,7 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   // item amount state
   const [itemAmount, setItemAmount] = useState(0);
+
   // total price state
   const [total, setTotal] = useState(0);
 
@@ -24,9 +25,13 @@ const CartProvider = ({ children }) => {
         return accumulator + currentItem.amount;
       }, 0);
       setItemAmount(amount);
+      let count = JSON.parse(sessionStorage.getItem("item"));
+      console.log(count);
+      const _count = count + 1;
+      sessionStorage.setItem("item", JSON.stringify(_count));
+      console.log(_count)
     }
   }, [cart]);
-
 
   // add to cart
   const addToCart = (product, id) => {
@@ -35,6 +40,7 @@ const CartProvider = ({ children }) => {
     const cartItem = cart.find((item) => {
       return item.id === id;
     });
+
     if (cartItem) {
       const newCart = [...cart].map((item) => {
         if (item.id === id) {
